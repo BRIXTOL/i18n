@@ -1,6 +1,6 @@
 {
   "name": "@brixtol/i18n",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Static GeoIP utility for generating basic i18n information from a country code.",
   "author": {
     "name": "Νίκος Σαβίδης ",
@@ -68,7 +68,7 @@
   "dependencies": {
     "@brixtol/country-names": "workspace:^1.1.2",
     "@brixtol/currency-codes": "workspace:^1.1.1",
-    "@brixtol/currency-placements": "workspace:^1.1.0",
+    "@brixtol/currency-symbol-placements": "workspace:^1.2.0",
     "@brixtol/currency-symbols": "workspace:^1.1.1"
   },
   "peerDependencies": {

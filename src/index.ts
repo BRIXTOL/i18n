@@ -1,7 +1,7 @@
 import { getCurrency } from '@brixtol/currency-codes';
 import { ICountries, getCountryName } from '@brixtol/country-names';
 import { ICurrencySymbols, getCurrencySymbol } from '@brixtol/currency-symbols';
-import { IPlacements, getCurrencyPlacement } from '@brixtol/currency-placements';
+import { IPlacements, getPlacement } from '@brixtol/currency-symbol-placements';
 
 export interface IGeoIP {
   /**
@@ -31,7 +31,7 @@ const get = (countryCode: keyof ICountries): IGeoIP => {
   const countryName = getCountryName(countryCode);
   const currencyCode = getCurrency(countryCode);
   const currencySymbol = getCurrencySymbol(currencyCode as keyof ICurrencySymbols);
-  const currencyPlacement = getCurrencyPlacement(currencyCode as keyof IPlacements);
+  const currencyPlacement = getPlacement(currencyCode as keyof IPlacements);
 
   return {
     countryCode,
