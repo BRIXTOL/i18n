@@ -4,14 +4,14 @@ Static GeoIP utilities which accepts a **3166-1 alpha-2** country code and retur
 
 ### Why?
 
-The vast majoirty of GeoIP services were doing too much or too little. We wanted a basic static powered GeoIP that would return exactly what we required in a fast and efficient manner. This project is composed from a series of small packages that map information from a series of datasets.
+The vast majority of GeoIP services were doing too much or too little. We wanted a basic static powered GeoIP that would return exactly what we required in a fast and efficient manner. This project is composed from a series of small packages that map information from a series of datasets.
 
 ### Install
 
 [pnpm](https://pnpm.js.org/en/cli/install)
 
 ```cli
-pnpm i @brixtol/i18n
+pnpm add @brixtol/i18n
 ```
 
 [npm](https://www.npmjs.com/)
@@ -75,12 +75,10 @@ const mutator = i18n('NL')(locale => ({ ...locale, hello: 'hoi!' }))
 
 This module constructs the response by using the following smaller modules:
 
-- [@brixtol/country-names](#)
-- [@brixtol/currency-codes](#)
-- [@brixtol/currency-placements](#)
-- [@brixtol/currency-rates](#)
-- [@brixtol/currency-symbols](#)
-- [@brixtol/language-codes](#)
+- [@brixtol/country-names](https://github.com/BRIXTOL/country-names)
+- [@brixtol/currency-codes](https://github.com/BRIXTOL/currency-codes)
+- [@brixtol/currency-placements](https://github.com/BRIXTOL/currency-symbol-placements)
+- [@brixtol/currency-symbols](https://github.com/BRIXTOL/currency-symbols)
 
 ### License
 
