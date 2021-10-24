@@ -1,6 +1,6 @@
 {
   "name": "@brixtol/i18n",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Static GeoIP utility for generating basic i18n information from a country code.",
   "author": {
     "name": "Νίκος Σαβίδης ",
