@@ -3,6 +3,10 @@ import { ICountries, getCountryName } from '@brixtol/country-names';
 import { ICurrencySymbols, getCurrencySymbol } from '@brixtol/currency-symbols';
 import { IPlacements, getPlacement } from '@brixtol/currency-symbol-placements';
 
+export { ICountries, CountryCodes } from '@brixtol/country-names';
+export { ICurrencySymbols } from '@brixtol/currency-symbols';
+export { ICurrencies } from '@brixtol/currency-codes';
+
 export interface IGeoIP {
   /**
    * The 2 Letter country code
