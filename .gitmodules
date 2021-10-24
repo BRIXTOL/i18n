@@ -1,7 +1,7 @@
 [submodule "packages/country-names"]
 	path = packages/country-names
 	url = https://github.com/BRIXTOL/country-names
-[submodule "packages/country-names"]
+[submodule "packages/country-codes"]
 	path = packages/currency-codes
 	url = https://github.com/BRIXTOL/currency-codes
 [submodule "packages/currency-placements"]
