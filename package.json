@@ -1,0 +1,77 @@
+{
+  "name": "@brixtol/i18n",
+  "version": "1.0.0",
+  "description": "Static GeoIP utility for generating basic i18n information from a country code.",
+  "author": {
+    "name": "Νίκος Σαβίδης ",
+    "email": "n@brixtol.com",
+    "url": "https://brixtoltextiles.com"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.es.js"
+  },
+  "types": "./index.d.ts",
+  "keywords": [
+    "countries",
+    "mappings",
+    "country",
+    "i18n",
+    "locale",
+    "geoip",
+    "3166-1 alpha-2",
+    "ISO 36166"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brixtol/i18n"
+  },
+  "bugs": {
+    "url": "https://github.com/brixtol/i18n"
+  },
+  "node": {},
+  "engines": {
+    "pnpm": ">=5"
+  },
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment prod",
+    "build:all": "pnpm build --filter .",
+    "package": "cd versions; pnpm pack ../ && cd ..",
+    "test": "ava --watch --verbose"
+  },
+  "prettier": "@brixtol/prettier-config",
+  "eslintConfig": {
+    "ignorePatterns": "package",
+    "extends": "@brixtol/eslint-config"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ],
+    "files": [
+      "test/*.js"
+    ],
+    "concurrency": 5
+  },
+  "devDependencies": {
+    "@brixtol/eslint-config": "workspace:^1.0.1",
+    "@brixtol/prettier-config": "workspace:^1.2.0",
+    "@brixtol/rollup-config": "workspace:^1.4.0",
+    "@brixtol/tsconfig": "workspace:^1.0.1",
+    "esm": "^3.2.25",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@brixtol/country-names": "workspace:^1.1.2",
+    "@brixtol/currency-codes": "workspace:^1.1.1",
+    "@brixtol/currency-placements": "workspace:^1.1.0",
+    "@brixtol/currency-symbols": "workspace:^1.1.1"
+  },
+  "peerDependencies": {
+    "tslib": "^2.3.1"
+  }
+}
