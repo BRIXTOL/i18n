@@ -7,6 +7,6 @@
 [submodule "packages/currency-placements"]
 	path = packages/currency-placements
 	url = https://github.com/BRIXTOL/currency-symbol-placements
-[submodule "packages/country-symbols"]
+[submodule "packages/currency-symbols"]
 	path = packages/currency-symbols
 	url = https://github.com/BRIXTOL/currency-symbols
