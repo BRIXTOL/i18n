@@ -28,7 +28,7 @@ yarn add @brixtol/i18n
 
 ## Usage
 
-Pass in a currency code that is lowercase, uppercase or a mixture of both. There are 2 exports available, the `i18n` is a curried function which will allow for mutation of the response in the 2nd callback. If you do not need to mutate then your use the `geo` export which will return the default response.
+Pass in a currency code that is lowercase, uppercase or a mixture of both. There is 1 export available, the `i18n` function exposes `mutate` option in the 2nd parameter. When `true` function is curried. If you do not need to mutate the default response is returned.
 
 ### Response
 
@@ -62,12 +62,12 @@ interface IGeoIP {
 ### Example
 
 ```ts
-import { i18n, geo } from '@brixtol/i18n';
+import { i18n } from '@brixtol/i18n';
 
 const default = geo('NL')
 // => IGeoIP
 
-const mutator = i18n('NL')(locale => ({ ...locale, hello: 'hoi!' }))
+const mutator = i18n('NL', { mutate: true})(locale => ({ ...locale, hello: 'hoi!' }))
 // => IGeoIP & { hello: 'hoi!' }
 ```
 
