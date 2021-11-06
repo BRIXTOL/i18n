@@ -1,10 +1,25 @@
 import test from 'ava';
-import { i18n, geo } from '../dist/index';
+import { i18n } from '../dist/index';
+
+test('i18n Fail', (t) => {
+
+  t.throws(() => i18n('WW'), {
+    message: 'Error: "WW" is an invalid ISO country code'
+  });
+
+  t.pass();
+
+});
 
 test('i18n Mutations', (t) => {
 
-  const sweden = i18n('SE')((locale) => ({ ...locale, hello: 'Hej!' }));
-  const netherlands = i18n('NL')((locale) => ({ ...locale, hello: 'Hoi!' }));
+  const sweden = i18n('SE', {
+    mutate: true
+  })((locale) => ({ ...locale, hello: 'Hej!' }));
+
+  const netherlands = i18n('NL', {
+    mutate: true
+  })((locale) => ({ ...locale, hello: 'Hoi!' }));
 
   t.deepEqual(sweden, {
     countryCode: 'SE',
@@ -30,8 +45,8 @@ test('i18n Mutations', (t) => {
 
 test('Geo getter', (t) => {
 
-  const sweden = geo('SE');
-  const netherlands = geo('NL');
+  const sweden = i18n('SE');
+  const netherlands = i18n('NL');
 
   t.deepEqual(sweden, {
     countryCode: 'SE',
