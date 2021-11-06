@@ -1,11 +1,11 @@
 import { getCurrency } from '@brixtol/currency-codes';
-import { ICountries, getCountryName } from '@brixtol/country-names';
-import { ICurrencySymbols, getCurrencySymbol } from '@brixtol/currency-symbols';
-import { IPlacements, getPlacement } from '@brixtol/currency-symbol-placements';
-
-export { ICountries, CountryCodes } from '@brixtol/country-names';
-export { ICurrencySymbols } from '@brixtol/currency-symbols';
-export { ICurrencies } from '@brixtol/currency-codes';
+import { getCountryName, CountryCodes } from '@brixtol/country-names';
+import { getCurrencySymbol } from '@brixtol/currency-symbols';
+import { getPlacement } from '@brixtol/currency-symbol-placements';
+import { LiteralUnion } from '@brixtol/tsutils';
+export * from '@brixtol/country-names';
+export * from '@brixtol/currency-symbols';
+export * from '@brixtol/currency-codes';
 
 export interface IGeoIP {
   /**
@@ -30,28 +30,45 @@ export interface IGeoIP {
   currencyPlacement: string
 }
 
-const get = (countryCode: keyof ICountries): IGeoIP => {
+export interface IOptions {
+  /**
+   * Whether or not the response should be
+   * mutated. i18n mutations will invoke a
+   * curried function return.
+   *
+   * @default false
+   */
+  mutate?: boolean;
+}
 
-  const countryName = getCountryName(countryCode);
-  const currencyCode = getCurrency(countryCode);
-  const currencySymbol = getCurrencySymbol(currencyCode as keyof ICurrencySymbols);
-  const currencyPlacement = getPlacement(currencyCode as keyof IPlacements);
+export function i18n <
+  O extends IOptions,
+  R extends O['mutate'] extends true
+  ? <T = unknown> (
+    callback: (
+      locale: Partial<IGeoIP>
+  ) => T) => T
+  : IGeoIP
+>(
+  countryCode: LiteralUnion<CountryCodes>,
+  options: O
+): R {
 
-  return {
-    countryCode,
-    countryName,
-    currencyCode,
-    currencySymbol,
-    currencyPlacement
-  };
+  const geoip: Partial<IGeoIP> = {};
+
+  try {
+
+    geoip.countryCode = countryCode;
+    geoip.countryName = getCountryName(countryCode);
+    geoip.currencyCode = getCurrency(countryCode);
+    geoip.currencySymbol = getCurrencySymbol(geoip.currencyCode);
+    geoip.currencyPlacement = getPlacement(geoip.currencyCode);
+
+    return <R>(options?.mutate ? (callback) => callback(geoip) : geoip);
+
+  } catch (error) {
+
+    throw new Error(error);
+
+  }
 };
-
-export const i18n = (
-  countryCode: keyof ICountries
-) => <T = unknown>(
-  callback: (locale: Partial<IGeoIP>) => T
-) => callback(get(countryCode));
-
-export const geo = (
-  countryCode: keyof ICountries
-) => get(countryCode);
