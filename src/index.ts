@@ -3,6 +3,8 @@ import { getCountryName, CountryCodes } from '@brixtol/country-names';
 import { getCurrencySymbol } from '@brixtol/currency-symbols';
 import { getPlacement } from '@brixtol/currency-symbol-placements';
 import { LiteralUnion } from '@brixtol/tsutils';
+import { has } from 'rambdax';
+
 export * from '@brixtol/country-names';
 export * from '@brixtol/currency-symbols';
 export * from '@brixtol/currency-codes';
@@ -51,10 +53,10 @@ export function i18n <
   : IGeoIP
 >(
   countryCode: LiteralUnion<CountryCodes>,
-  options: O
+  options?: O
 ): R {
 
-  const geoip: Partial<IGeoIP> = {};
+  const geoip: Partial<IGeoIP> = Object.create(null);
 
   try {
 
@@ -64,7 +66,7 @@ export function i18n <
     geoip.currencySymbol = getCurrencySymbol(geoip.currencyCode);
     geoip.currencyPlacement = getPlacement(geoip.currencyCode);
 
-    return <R>(options?.mutate ? (callback) => callback(geoip) : geoip);
+    return <R>(has('mutate', options) ? callback => callback(geoip) : geoip);
 
   } catch (error) {
 

@@ -1,6 +1,6 @@
 {
   "name": "@brixtol/i18n",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Static GeoIP utility for generating basic i18n information from a country code.",
   "author": {
     "name": "Νίκος Σαβίδης ",
@@ -47,7 +47,9 @@
   },
   "prettier": "@brixtol/prettier-config",
   "eslintConfig": {
-    "ignorePatterns": "package",
+    "ignorePatterns": [
+      "dist"
+    ],
     "extends": "@brixtol/eslint-config"
   },
   "ava": {
@@ -60,23 +62,20 @@
     "concurrency": 5
   },
   "devDependencies": {
-    "@brixtol/eslint-config": "workspace:^1.0.1",
-    "@brixtol/prettier-config": "workspace:^1.2.1",
-    "@brixtol/rollup-config": "workspace:^1.4.0",
-    "@brixtol/tsconfig": "workspace:^1.0.1",
+    "@brixtol/eslint-config": "^1.0.1",
+    "@brixtol/prettier-config": "^1.2.1",
+    "@brixtol/rollup-config": "^1.4.0",
+    "@brixtol/tsconfig": "^1.2.0",
+    "ava": "^3.15.0",
     "esm": "^3.2.25",
-    "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@brixtol/country-names": "workspace:^1.2.1",
-    "@brixtol/currency-codes": "workspace:^1.2.1",
-    "@brixtol/currency-symbol-placements": "workspace:^1.2.1",
-    "@brixtol/currency-symbols": "workspace:^1.2.1",
-    "@brixtol/tsutils": "workspace:^1.0.0",
+    "@brixtol/country-names": "^1.2.1",
+    "@brixtol/currency-codes": "^1.2.1",
+    "@brixtol/currency-symbol-placements": "^1.2.1",
+    "@brixtol/currency-symbols": "^1.2.1",
+    "@brixtol/tsutils": "^1.4.1",
     "rambdax": "^7.4.1"
-  },
-  "peerDependencies": {
-    "tslib": "^2.3.1"
   }
 }

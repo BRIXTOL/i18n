@@ -3,13 +3,7 @@
   "exclude": ["node_modules"],
   "include": ["src"],
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
     "declarationDir": "dist",
-    "declaration": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
-    "target": "ESNext",
-    "lib": ["ES2020"],
-    "module": "ES6"
+    "declaration": true
   }
 }

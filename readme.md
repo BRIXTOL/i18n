@@ -28,7 +28,7 @@ yarn add @brixtol/i18n
 
 ## Usage
 
-Pass in a currency code that is lowercase, uppercase or a mixture of both. There is 1 export available, the `i18n` function exposes `mutate` option in the 2nd parameter. When `true` function is curried. If you do not need to mutate the default response is returned.
+Pass in a currency code that is lowercase, uppercase or a mixture of both. There is 1 export available, the `i18n` function exposes a `mutate` option. When `true` is passed then the function is curried. If you do not need to mutate the default response is returned.
 
 ### Response
 
