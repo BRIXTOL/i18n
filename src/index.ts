@@ -1,5 +1,6 @@
 import { getCurrency } from '@brixtol/currency-codes';
 import { getCountryName, CountryCodes } from '@brixtol/country-names';
+import { getContinentCode, ContinentNames } from '@brixtol/country-continent';
 import { getCurrencySymbol } from '@brixtol/currency-symbols';
 import { getPlacement } from '@brixtol/currency-symbol-placements';
 import { LiteralUnion } from '@brixtol/tsutils';
@@ -14,6 +15,14 @@ export interface IGeoIP {
    * The 2 Letter country code
    */
   countryCode: string,
+  /**
+   * The 2 Letter country continent code
+   */
+  continentCode: string,
+  /**
+   * The continent name (in English)
+   */
+  continentName: string,
   /**
    * The Country Name (in English)
    */
@@ -65,6 +74,8 @@ export function i18n <
     geoip.currencyCode = getCurrency(countryCode);
     geoip.currencySymbol = getCurrencySymbol(geoip.currencyCode);
     geoip.currencyPlacement = getPlacement(geoip.currencyCode);
+    geoip.continentCode = getContinentCode(countryCode);
+    geoip.continentName = ContinentNames[geoip.continentCode];
 
     return <R>(has('mutate', options) ? callback => callback(geoip) : geoip);
 

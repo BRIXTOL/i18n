@@ -27,6 +27,8 @@ test('i18n Mutations', (t) => {
     currencyCode: 'SEK',
     currencyPlacement: '# !',
     currencySymbol: 'kr',
+    continentCode: 'EU',
+    continentName: 'Europe',
     hello: 'Hej!'
   });
 
@@ -36,6 +38,8 @@ test('i18n Mutations', (t) => {
     currencyCode: 'EUR',
     currencyPlacement: '!#',
     currencySymbol: '€',
+    continentCode: 'EU',
+    continentName: 'Europe',
     hello: 'Hoi!'
   });
 
@@ -53,7 +57,9 @@ test('Geo getter', (t) => {
     countryName: 'Sweden',
     currencyCode: 'SEK',
     currencyPlacement: '# !',
-    currencySymbol: 'kr'
+    currencySymbol: 'kr',
+    continentCode: 'EU',
+    continentName: 'Europe'
   });
 
   t.deepEqual(netherlands, {
@@ -61,7 +67,9 @@ test('Geo getter', (t) => {
     countryName: 'Netherlands',
     currencyCode: 'EUR',
     currencyPlacement: '!#',
-    currencySymbol: '€'
+    currencySymbol: '€',
+    continentCode: 'EU',
+    continentName: 'Europe'
   });
 
   t.pass();
