@@ -1,5 +1,9 @@
 ## _CHANGELOG_
 
+### 1.5.0 - 01/12/2021
+
+- Added Continent mapping
+
 ### 1.4.0 - 21/11/2021
 
 - Minor internal updates
