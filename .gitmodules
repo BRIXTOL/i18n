@@ -1,3 +1,6 @@
+[submodule "packages/country-continent"]
+	path = packages/country-continent
+	url = https://github.com/BRIXTOL/country-continent
 [submodule "packages/country-names"]
 	path = packages/country-names
 	url = https://github.com/BRIXTOL/country-names
